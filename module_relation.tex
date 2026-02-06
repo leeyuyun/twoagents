@@ -1,0 +1,25 @@
+\section*{模組關係圖（文字版）}
+\begin{itemize}
+\item \texttt{main.py} $\rightarrow$ \texttt{agents.py}（建立 Agent 設定與訊息）
+\item \texttt{main.py} $\rightarrow$ \texttt{ollama\_client.py}（建立 LLM 連線 client）
+\item \texttt{main.py} $\rightarrow$ \texttt{orchestrator.py}（控制對話回合）
+\item \texttt{orchestrator.py} $\rightarrow$ \texttt{agents.py}（組裝 messages）
+\item \texttt{orchestrator.py} $\rightarrow$ \texttt{ollama\_client.py}（發送 chat）
+\end{itemize}
+
+\section*{函式/類別摘要}
+\begin{description}
+\item[\texttt{main.py}] CLI 入口，解析參數，組裝 agents/clients/orchestrator，啟動 \texttt{run()}。
+\item[\texttt{agents.py}] 定義 \texttt{AgentConfig}，建立 system prompt，組裝對話 messages。
+\item[\texttt{ollama\_client.py}] LLM HTTP 串流呼叫，支援 Ollama + OpenAI 相容。
+\item[\texttt{orchestrator.py}] 控制回合、JSON 驗證、滿意度、摘要壓縮、輸出 transcript。
+\end{description}
+
+\section*{資料流與狀態流}
+\begin{enumerate}
+\item CLI 參數 $\rightarrow$ \texttt{main.py}
+\item \texttt{build\_agent\_configs()} 產生 Agent A/B system prompts
+\item \texttt{Orchestrator.run()} 進入回合控制
+\item 每回合：組裝 messages $\rightarrow$ 串流呼叫 $\rightarrow$ JSON 驗證 $\rightarrow$ 更新 context/transcript
+\item 達成停止條件或回合上限 $\rightarrow$ 輸出最終報告與 transcript
+\end{enumerate}

@@ -1,0 +1,355 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.30)  5 FEB 2026 10:30
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**module_relation_full.tex
+(./module_relation_full.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(c:/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJKutf8.sty
+Package: CJKutf8 2021/10/16 4.8.5
+
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+(c:/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.sty
+Package: CJK 2021/10/16 4.8.5
+
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/mule/MULEenc.sty
+Package: MULEenc 2021/10/16 4.8.5
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.enc
+File: CJK.enc 2021/10/16 4.8.5
+Now handling font encoding C00 ...
+... no UTF-8 mapping file for font encoding C00
+Now handling font encoding C05 ...
+... no UTF-8 mapping file for font encoding C05
+Now handling font encoding C09 ...
+... no UTF-8 mapping file for font encoding C09
+Now handling font encoding C10 ...
+... no UTF-8 mapping file for font encoding C10
+Now handling font encoding C20 ...
+... no UTF-8 mapping file for font encoding C20
+Now handling font encoding C19 ...
+... no UTF-8 mapping file for font encoding C19
+Now handling font encoding C40 ...
+... no UTF-8 mapping file for font encoding C40
+Now handling font encoding C42 ...
+... no UTF-8 mapping file for font encoding C42
+Now handling font encoding C43 ...
+... no UTF-8 mapping file for font encoding C43
+Now handling font encoding C50 ...
+... no UTF-8 mapping file for font encoding C50
+Now handling font encoding C52 ...
+... no UTF-8 mapping file for font encoding C52
+Now handling font encoding C49 ...
+... no UTF-8 mapping file for font encoding C49
+Now handling font encoding C60 ...
+... no UTF-8 mapping file for font encoding C60
+Now handling font encoding C61 ...
+... no UTF-8 mapping file for font encoding C61
+Now handling font encoding C63 ...
+... no UTF-8 mapping file for font encoding C63
+Now handling font encoding C64 ...
+... no UTF-8 mapping file for font encoding C64
+Now handling font encoding C65 ...
+... no UTF-8 mapping file for font encoding C65
+Now handling font encoding C70 ...
+... no UTF-8 mapping file for font encoding C70
+Now handling font encoding C31 ...
+... no UTF-8 mapping file for font encoding C31
+Now handling font encoding C32 ...
+... no UTF-8 mapping file for font encoding C32
+Now handling font encoding C33 ...
+... no UTF-8 mapping file for font encoding C33
+Now handling font encoding C34 ...
+... no UTF-8 mapping file for font encoding C34
+Now handling font encoding C35 ...
+... no UTF-8 mapping file for font encoding C35
+Now handling font encoding C36 ...
+... no UTF-8 mapping file for font encoding C36
+Now handling font encoding C37 ...
+... no UTF-8 mapping file for font encoding C37
+Now handling font encoding C80 ...
+... no UTF-8 mapping file for font encoding C80
+Now handling font encoding C81 ...
+... no UTF-8 mapping file for font encoding C81
+Now handling font encoding C01 ...
+... no UTF-8 mapping file for font encoding C01
+Now handling font encoding C11 ...
+... no UTF-8 mapping file for font encoding C11
+Now handling font encoding C21 ...
+... no UTF-8 mapping file for font encoding C21
+Now handling font encoding C41 ...
+... no UTF-8 mapping file for font encoding C41
+Now handling font encoding C62 ...
+... no UTF-8 mapping file for font encoding C62
+)
+\CJK@indent=\box53
+)
+(c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+))
+(c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(c:/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks20
+)
+(c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count286
+)
+(./module_relation_full.aux)
+\openout1 = `module_relation_full.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.bdg
+File: UTF8.bdg 2021/10/16 4.8.5
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc
+File: UTF8.enc 2021/10/16 4.8.5
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
+File: UTF8.chr 2021/10/16 4.8.5
+)
+(./module_relation.tex
+LaTeX Font Info:    Trying to load font information for C70+bsmi on input line 
+1.
+
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/c70bsmi.fd
+File: c70bsmi.fd 2021/10/16 4.8.5
+)
+(c:/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/c70bsmi.fdx
+File: c70bsmi.fdx 2021/10/16 4.8.5
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 12.
+) [1
+
+{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/
+texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./module_relation_full.
+aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 3015 strings out of 467533
+ 43533 string characters out of 5423668
+ 455458 words of memory out of 5000000
+ 31834 multiletter control sequences out of 15000+600000
+ 646151 words of font info for 105 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,5n,65p,226b,982s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu30.pfb><c:/texlive/
+2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu4e.pfb><c:/texlive/2025/texmf-dis
+t/fonts/type1/arphic/bsmiu/bsmiu4f.pfb><c:/texlive/2025/texmf-dist/fonts/type1/
+arphic/bsmiu/bsmiu50.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/b
+smiu51.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu52.pfb><c:
+/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu53.pfb><c:/texlive/2025/
+texmf-dist/fonts/type1/arphic/bsmiu/bsmiu54.pfb><c:/texlive/2025/texmf-dist/fon
+ts/type1/arphic/bsmiu/bsmiu55.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphi
+c/bsmiu/bsmiu56.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu5
+7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu58.pfb><c:/texl
+ive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu5b.pfb><c:/texlive/2025/texmf
+-dist/fonts/type1/arphic/bsmiu/bsmiu5c.pfb><c:/texlive/2025/texmf-dist/fonts/ty
+pe1/arphic/bsmiu/bsmiu5e.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsm
+iu/bsmiu5f.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu60.pfb
+><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu61.pfb><c:/texlive/2
+025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu62.pfb><c:/texlive/2025/texmf-dist
+/fonts/type1/arphic/bsmiu/bsmiu63.pfb><c:/texlive/2025/texmf-dist/fonts/type1/a
+rphic/bsmiu/bsmiu64.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bs
+miu65.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu66.pfb><c:/
+texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu67.pfb><c:/texlive/2025/t
+exmf-dist/fonts/type1/arphic/bsmiu/bsmiu68.pfb><c:/texlive/2025/texmf-dist/font
+s/type1/arphic/bsmiu/bsmiu6a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic
+/bsmiu/bsmiu6b.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu6d
+.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu6e.pfb><c:/texli
+ve/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu72.pfb><c:/texlive/2025/texmf-
+dist/fonts/type1/arphic/bsmiu/bsmiu75.pfb><c:/texlive/2025/texmf-dist/fonts/typ
+e1/arphic/bsmiu/bsmiu76.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmi
+u/bsmiu7a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu7d.pfb>
+<c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu7e.pfb><c:/texlive/20
+25/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu7f.pfb><c:/texlive/2025/texmf-dist/
+fonts/type1/arphic/bsmiu/bsmiu82.pfb><c:/texlive/2025/texmf-dist/fonts/type1/ar
+phic/bsmiu/bsmiu88.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsm
+iu89.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu8a.pfb><c:/t
+exlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu8b.pfb><c:/texlive/2025/te
+xmf-dist/fonts/type1/arphic/bsmiu/bsmiu8c.pfb><c:/texlive/2025/texmf-dist/fonts
+/type1/arphic/bsmiu/bsmiu8f.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/
+bsmiu/bsmiu90.pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu95.
+pfb><c:/texlive/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu96.pfb><c:/texliv
+e/2025/texmf-dist/fonts/type1/arphic/bsmiu/bsmiu98.pfb><c:/texlive/2025/texmf-d
+ist/fonts/type1/arphic/bsmiu/bsmiu9a.pfb><c:/texlive/2025/texmf-dist/fonts/type
+1/arphic/bsmiu/bsmiuff.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texliv
+e/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on module_relation_full.pdf (1 page, 257290 bytes).
+PDF statistics:
+ 329 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+

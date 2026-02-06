@@ -1,0 +1,16 @@
+[project]
+name = "twobotschat"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pycg>=0.0.8",
+    "pydeps>=3.0.2",
+    "pylint>=4.0.4",
+    "requests>=2.31.0",
+    "setuptools>=80.10.2",
+]
+
+[tool.uv.sources]
+pycg = { git = "https://github.com/vitsalis/PyCG.git" }

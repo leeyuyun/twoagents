@@ -1,0 +1,50 @@
+digraph callgraph {
+  rankdir=LR;
+  node [shape=box, fontsize=10];
+  subgraph "cluster_orchestrator" {
+    label="orchestrator";
+    "orchestrator.Orchestrator.__init__";
+    "orchestrator.Orchestrator._get_satisfaction";
+    "orchestrator.Orchestrator._infer_unmet_reasons";
+    "orchestrator.Orchestrator._json_safe";
+    "orchestrator.Orchestrator._latest_entry";
+    "orchestrator.Orchestrator._parse_output";
+    "orchestrator.Orchestrator._print_agent_conclusion";
+    "orchestrator.Orchestrator._print_consensus_summary";
+    "orchestrator.Orchestrator._print_final_report";
+    "orchestrator.Orchestrator._run_agent_turn";
+    "orchestrator.Orchestrator._summarize_and_trim_context";
+    "orchestrator.Orchestrator._write_transcript";
+    "orchestrator.Orchestrator.run";
+  }
+  subgraph "cluster_ollama_client" {
+    label="ollama_client";
+    "ollama_client.OllamaClient.__init__";
+    "ollama_client.OllamaClient.chat";
+  }
+  subgraph "cluster_main" {
+    label="main";
+    "main.main";
+    "main.parse_args";
+    "main.read_role";
+  }
+  subgraph "cluster_agents" {
+    label="agents";
+    "agents.build_agent_configs";
+    "agents.build_messages";
+  }
+  "main.main" -> "main.parse_args";
+  "orchestrator.Orchestrator._json_safe" -> "orchestrator.Orchestrator._json_safe";
+  "orchestrator.Orchestrator._print_final_report" -> "orchestrator.Orchestrator._infer_unmet_reasons";
+  "orchestrator.Orchestrator._print_final_report" -> "orchestrator.Orchestrator._print_agent_conclusion";
+  "orchestrator.Orchestrator._print_final_report" -> "orchestrator.Orchestrator._print_consensus_summary";
+  "orchestrator.Orchestrator._run_agent_turn" -> "agents.build_messages";
+  "orchestrator.Orchestrator._run_agent_turn" -> "orchestrator.Orchestrator._parse_output";
+  "orchestrator.Orchestrator._run_agent_turn" -> "orchestrator.Orchestrator._summarize_and_trim_context";
+  "orchestrator.Orchestrator._write_transcript" -> "orchestrator.Orchestrator._json_safe";
+  "orchestrator.Orchestrator.run" -> "orchestrator.Orchestrator._get_satisfaction";
+  "orchestrator.Orchestrator.run" -> "orchestrator.Orchestrator._latest_entry";
+  "orchestrator.Orchestrator.run" -> "orchestrator.Orchestrator._print_final_report";
+  "orchestrator.Orchestrator.run" -> "orchestrator.Orchestrator._run_agent_turn";
+  "orchestrator.Orchestrator.run" -> "orchestrator.Orchestrator._write_transcript";
+}
