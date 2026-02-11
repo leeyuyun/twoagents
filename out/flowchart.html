@@ -2,267 +2,431 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>flowchart.html</title>
+        <title>TwoBotsChat – Project Flow Chart</title>
         <style type="text/css">
-          .end-element { fill : #FFCCFF; }
+          body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+          }
+          h1 { font-size: 1.5rem; margin-bottom: 4px; }
+          h2 { font-size: 1.1rem; color: #555; margin-top: 0; }
+          .tab-bar {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+          }
+          .tab-bar button {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            font-size: 0.9rem;
+          }
+          .tab-bar button.active {
+            background: #0d6efd;
+            color: #fff;
+            border-color: #0d6efd;
+          }
+          #code {
+            width: 100%;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+          }
+          #canvas {
+            margin-top: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 16px;
+            overflow: auto;
+          }
+          .download-links { margin-top: 8px; }
+          .download-links a { margin-right: 16px; }
+          .end-element { fill: #FFCCFF; }
+          .controls { display: flex; gap: 8px; margin: 8px 0; align-items: center; }
+          .controls button { padding: 6px 14px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer; }
+          .controls button#run { background: #0d6efd; color: #fff; border-color: #0d6efd; }
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
-        <!-- <script src="../release/flowchart.min.js"></script> -->
         <script>
+/* ── Flowchart definitions for each diagram tab ── */
+const CHARTS = {};
 
-            window.onload = function () {
-                var btn = document.getElementById("run"),
-                    cd = document.getElementById("code"),
-                    chart;
-                    
-                (btn.onclick = function () {
-                    var code = cd.value;
+CHARTS["main"] = `
+st=>start: python main.py
+op_parse=>operation: parse_args()
+Parse CLI arguments
+cond_topic=>condition: --topic
+provided?
+io_topic=>inputoutput: Prompt user
+for discussion topic
+cond_roleA=>condition: --agent-a-role
+provided?
+io_roleA=>inputoutput: Prompt user for
+Agent A role supplement
+cond_roleB=>condition: --agent-b-role
+provided?
+io_roleB=>inputoutput: Prompt user for
+Agent B role supplement
+op_build=>operation: build_agent_configs()
+Create Agent A (Existentialist)
+& Agent B (Pragmatist)
+op_clients=>operation: Create OllamaClient
+instances for each agent
+op_orch=>operation: Create Orchestrator
+with agents, clients & config
+sub_run=>subroutine: Orchestrator.run()
+(see Orchestrator tab)
+e=>end: Exit
 
-                    if (chart) {
-                      chart.clean();
-                    }
+st->op_parse->cond_topic
+cond_topic(no)->io_topic->cond_roleA
+cond_topic(yes)->cond_roleA
+cond_roleA(no)->io_roleA->cond_roleB
+cond_roleA(yes)->cond_roleB
+cond_roleB(no)->io_roleB->op_build
+cond_roleB(yes)->op_build
+op_build->op_clients->op_orch->sub_run->e
+`;
 
-                    chart = flowchart.parse(code);
-                    chart.drawSVG('canvas', {
-                      'x': 0,
-                      'y': 0,
-                      'line-width': 3,
-                      //'maxWidth': 15,//ensures the flowcharts fits within a certain width
-                      'line-length': 50,
-                      'text-margin': 10,
-                      'font-size': 14,
-                      'font': 'normal',
-                      'font-family': 'Helvetica',
-                      'font-weight': 'normal',
-                      'font-color': 'black',
-                      'line-color': 'black',
-                      'element-color': 'black',
-                      'fill': 'white',
-                      'yes-text': 'yes',
-                      'no-text': 'no',
-                      'arrow-end': 'block',
-                      'scale': 1,
-                      'symbols': {
-                        'start': {
-                          'font-size': 14,
-                          'font-color': 'yellow',
-                          'element-color': 'blue',
-                          'fill': 'green',
-                          'class': 'start-element'
-                        },
-                        'inputoutput': {
-                          'font-color': 'black',
-                          'element-color': 'black',
-                          'fill': 'bisque'
-                        },
-                        'operation': {
-                          'font-color': 'black',
-                          'element-color': 'black',
-                          'fill': 'linen'
-                        },
-                        'subroutine': {
-                          'font-color': 'black',
-                          'element-color': 'blue',
-                          'fill': 'lightgreen'
-                        },
-                        'condition': {
-                          'font-color': 'red',
-                          'element-color': 'black',
-                          'fill': 'yellow'
-                        },
-                        'end':{
-                          'font-size': 20,
-                          'class': 'end-element'
-                        }
-                      },
-                      'flowstate' : {
-                        //'past' : { 'fill' : '#CCCCCC', 'font-size' : 12},
-                        //'current' : {'fill' : 'yellow', 'font-color' : 'red', 'font-weight' : 'bold'},
-                        //'future' : { 'fill' : '#FFFF99'},
-                        'request' : { 'fill' : 'blue'},
-                        'invalid': {'fill' : '#444444'},
-                        'approved' : { 'fill' : '#58C4A3', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
-                        'rejected' : { 'fill' : '#C45879', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
-                      }
-                    });
-                    //create base64 encoding of SVG to generate download link for title(without html or htm).SVG
-                    var currentCanvasDIV = document.getElementById('canvas')
-                    var currentDrawSVG = currentCanvasDIV.innerHTML.replaceAll('ë','e');
+CHARTS["orchestrator"] = `
+st=>start: Orchestrator.run()
+op_init=>operation: turn = 1
+stable_count = 0
+cond_max=>condition: turn <= max_turns?
+sub_agentA=>subroutine: _run_agent_turn(Agent A)
+(see Agent Turn tab)
+sub_agentB=>subroutine: _run_agent_turn(Agent B)
+(see Agent Turn tab)
+op_sat=>operation: Get satisfaction
+scores for both agents
+cond_sat=>condition: Both agents
+satisfaction >= min_sat?
+op_inc_stable=>operation: stable_count += 1
+op_reset_stable=>operation: stable_count = 0
+cond_stable=>condition: stable_count
+>= stable_rounds?
+op_next=>operation: turn += 1
+op_stop_stable=>operation: stop_reason =
+"consensus reached"
+op_stop_max=>operation: stop_reason =
+"max turns reached"
+sub_write=>subroutine: _write_transcript()
+Save JSONL file
+sub_report=>subroutine: _print_final_report()
+(see Report tab)
+e=>end: End
 
-                    const OUTsvgBASE64 = btoa(currentDrawSVG)
-                    doctitle = document.title.replace('.html','');
-                    doctitle = doctitle.replace('.htm','');
+st->op_init->cond_max
+cond_max(yes)->sub_agentA->sub_agentB->op_sat->cond_sat
+cond_sat(yes)->op_inc_stable->cond_stable
+cond_sat(no)->op_reset_stable->op_next->cond_max
+cond_stable(yes)->op_stop_stable->sub_write
+cond_stable(no)->op_next
+cond_max(no)->op_stop_max->sub_write
+sub_write->sub_report->e
+`;
 
+CHARTS["agent_turn"] = `
+st=>start: _run_agent_turn(agent)
+op_attempt=>operation: attempt = 1
+strict_json = False
+sub_summarize=>subroutine: _summarize_and_trim_context()
+(see Context Mgmt tab)
+op_build=>operation: build_messages()
+Construct message history with
+system prompt, topic, summary
+& recent transcript entries
+op_chat=>operation: OllamaClient.chat()
+Stream response from LLM
+& print chunks in real-time
+op_parse=>operation: _parse_output(text)
+Validate JSON structure:
+reply_zh_tw, satisfaction,
+key_points, needs_from_other
+cond_valid=>condition: Parse
+succeeded?
+op_record_ok=>operation: Record to transcript
+& context with parsed data
+(satisfaction, key_points, etc.)
+op_record_err=>operation: Record parse error
+to transcript
+cond_retry=>condition: attempt < 2?
+op_retry=>operation: attempt = 2
+strict_json = True
+(add strict JSON system msg)
+op_fail=>operation: Record final error entry
+to transcript & context
+e=>end: Return
 
-                    var currentCanvasDIV = document.getElementById('canvas')
-                    var currentDrawSVG = currentCanvasDIV.innerHTML.replaceAll('ë','e');
-                    svgSource = currentDrawSVG
-                    svgXML = currentDrawSVG;
-                    // Use SVG Height and Width from the SVG XML to set canvas size
-                    svgXMLsubstringHeight = svgXML.substring(svgXML.indexOf('height='), svgXML.indexOf('version='));
-                    svgXMLsubstringWidth = svgXML.substring(svgXML.indexOf('width='), svgXML.indexOf('xmlns='));
-                    HeightValue = svgXMLsubstringHeight.substring(svgXMLsubstringHeight.indexOf('"')+1,svgXMLsubstringHeight.lastIndexOf('"'));
-                    WidthValue = svgXMLsubstringWidth.substring(svgXMLsubstringWidth.indexOf('"')+1,svgXMLsubstringWidth.lastIndexOf('"'));
-                    HeightValueInt = Math.round(HeightValue)
-                    WidthValueInt = Math.round(WidthValue)
-                    // setup input for base64SvgToBase64Png
-                    let svgSrc = "data:image/svg+xml;base64,"+OUTsvgBASE64;
-                    var pngBase
-                    imageUtil.base64SvgToBase64Png(svgSrc, WidthValueInt, HeightValueInt).then(pngSrc => {
-                    pngBase = pngSrc
-                    // output download link for base64 PNG converted on download from base64
-                    var pngOutHtml = `<a href="${pngBase}" download="${doctitle}.png">PNG - Click here to download current rendered flowchart as ${doctitle}.png</a>`
-                    document.getElementById("pngbase64").innerHTML=pngOutHtml;
-                    });    
-                    // output download link for base64 SVG converted on download from base64
-                    var svgOutHtml = `<a href="data:image/svg+xml;base64,${OUTsvgBASE64}" download=${doctitle}.svg>SVG - Click here to download current rendered flowchart as ${doctitle}.svg</a> `
-                        document.getElementById("svgbase64").innerHTML=svgOutHtml;
-                    })();
+st->op_attempt->sub_summarize->op_build->op_chat->op_parse->cond_valid
+cond_valid(yes)->op_record_ok->e
+cond_valid(no)->op_record_err->cond_retry
+cond_retry(yes)->op_retry->sub_summarize
+cond_retry(no)->op_fail->e
+`;
 
-                            };
-                 
+CHARTS["context_mgmt"] = `
+st=>start: _summarize_and_trim_context()
+op_count=>operation: Count entries
+in self.context
+cond_enough=>condition: entries >
+summary_keep_last?
+op_no_summary=>operation: Return summary=""
+and all entries as recent
+op_split=>operation: Split context into
+older (to compress) and
+recent (keep last N entries)
+op_extract=>operation: For each older entry:
+extract key_points or
+reply_zh_tw text
+op_bullet=>operation: Join extracted text into
+bullet-point summary
+(max summary_max_points bullets)
+io_out=>inputoutput: Return (summary, recent_entries)
+e=>end: Return to caller
 
-// derived from https://stackoverflow.com/a/64800570
-// we need to use web browser canvas to generate a image. In this case png
-let imageUtil = {};
-/**
- * converts a base64 encoded data url SVG image to a PNG image
- * @param originalBase64 data url of svg image
- * @param width target width in pixel of PNG image
- * @param secondTry used internally to prevent endless recursion
- * @return {Promise<unknown>} resolves to png data url of the image
- */
-imageUtil.base64SvgToBase64Png = function (originalBase64, width, height, secondTry) {
-    return new Promise(resolve => {
-        let img = document.createElement('img');
-        img.onload = function () {
-            if (!secondTry && (img.naturalWidth === 0 || img.naturalHeight === 0)) {
-                let svgDoc = base64ToSvgDocument(originalBase64);
-                let fixedDoc = fixSvgDocumentFF(svgDoc);
-                return imageUtil.base64SvgToBase64Png(svgDocumentToBase64(fixedDoc), width, height, true).then(result => {
-                    resolve(result);
-                });
-            }
-            //document.body.appendChild(img);
-            let canvas2 = document.createElement("canvas");
-            //document.body.removeChild(img);
-            canvas2.width = width;
-            canvas2.height = height;
-            let ctx = canvas2.getContext("2d");
-            ctx.drawImage(img, 0, 0, canvas2.width, canvas2.height);
-            try {
-                let data = canvas2.toDataURL('image/png');
-                resolve(data);
-            } catch (e) {
-                resolve(null);
-            }
-        };
-        img.src = originalBase64;
-    });
+st->op_count->cond_enough
+cond_enough(no)->op_no_summary->e
+cond_enough(yes)->op_split->op_extract->op_bullet->io_out->e
+`;
+
+CHARTS["ollama_client"] = `
+st=>start: OllamaClient.chat(messages)
+op_post=>operation: POST to /api/chat
+(Ollama native format)
+with model & messages
+cond_404=>condition: HTTP 404?
+op_openai=>operation: POST to /v1/chat/completions
+(OpenAI-compatible format)
+with model & messages, stream=true
+op_stream=>operation: Read streaming response
+line by line
+op_parse=>operation: Parse each line as JSON
+Extract content/delta chunk
+op_chunk=>operation: Call on_chunk(text)
+for real-time terminal output
+Append to full_text buffer
+cond_done=>condition: Stream
+complete?
+(done=true or [DONE])
+io_out=>inputoutput: Return (full_text, raw_lines)
+e=>end: Return
+
+st->op_post->cond_404
+cond_404(no)->op_stream
+cond_404(yes)->op_openai->op_stream
+op_stream->op_parse->op_chunk->cond_done
+cond_done(no)->op_parse
+cond_done(yes)->io_out->e
+`;
+
+CHARTS["report"] = `
+st=>start: _print_final_report()
+op_last=>operation: Get last valid entry
+for each agent
+sub_concA=>subroutine: _print_agent_conclusion(Agent A)
+Print key_points or reply_zh_tw
+sub_concB=>subroutine: _print_agent_conclusion(Agent B)
+Print key_points or reply_zh_tw
+sub_consensus=>subroutine: _print_consensus_summary()
+Collect & deduplicate
+key_points from both agents
+cond_target=>condition: Reached
+satisfaction
+target?
+op_ok=>operation: Print "Target reached"
+with final satisfaction scores
+sub_unmet=>subroutine: _infer_unmet_reasons()
+Show unmet needs &
+divergent points
+op_reason=>operation: Print stop_reason
+(consensus / max turns)
+e=>end: Done
+
+st->op_last->sub_concA->sub_concB->sub_consensus->cond_target
+cond_target(yes)->op_ok->op_reason->e
+cond_target(no)->sub_unmet->op_reason->e
+`;
+
+CHARTS["build_messages"] = `
+st=>start: build_messages(agent, transcript, ...)
+op_sys=>operation: 1. Add agent system prompt
+(personality, JSON schema,
+Traditional Chinese rules)
+cond_strict=>condition: strict_json
+enabled?
+op_strict=>operation: Add extra system message
+enforcing strict JSON output
+op_topic=>operation: 2. Add user message
+with discussion topic
+cond_summary=>condition: Summary
+provided?
+op_summary=>operation: 3. Add user message with
+compressed context summary
+of older conversation turns
+op_loop=>operation: 4. Loop through recent
+transcript entries
+cond_own=>condition: Is entry
+from this agent?
+op_asst=>operation: Add as "assistant" role
+(agent's own prior response)
+op_user=>operation: Add as "user" role
+prefixed with other agent's name
+cond_err=>condition: Has parse
+error?
+op_wrap=>operation: Wrap in error note:
+"(JSON error — raw output below)"
+cond_more=>condition: More
+entries?
+io_out=>inputoutput: Return messages list
+e=>end: Return
+
+st->op_sys->cond_strict
+cond_strict(yes)->op_strict->op_topic
+cond_strict(no)->op_topic
+op_topic->cond_summary
+cond_summary(yes)->op_summary->op_loop
+cond_summary(no)->op_loop
+op_loop->cond_own
+cond_own(yes)->op_asst->cond_more
+cond_own(no)->op_user->cond_err
+cond_err(yes)->op_wrap->cond_more
+cond_err(no)->cond_more
+cond_more(yes)->cond_own
+cond_more(no)->io_out->e
+`;
+
+/* ── Rendering logic ── */
+const DRAW_OPTIONS = {
+    'x': 0, 'y': 0,
+    'line-width': 2,
+    'line-length': 50,
+    'text-margin': 10,
+    'font-size': 13,
+    'font': 'normal',
+    'font-family': 'Helvetica',
+    'font-weight': 'normal',
+    'font-color': 'black',
+    'line-color': '#333',
+    'element-color': '#333',
+    'fill': 'white',
+    'yes-text': 'yes',
+    'no-text': 'no',
+    'arrow-end': 'block',
+    'scale': 1,
+    'symbols': {
+        'start':       { 'font-size': 13, 'font-color': '#fff', 'element-color': '#198754', 'fill': '#198754', 'class': 'start-element' },
+        'end':         { 'font-size': 13, 'font-color': '#fff', 'element-color': '#6c757d', 'fill': '#6c757d', 'class': 'end-element' },
+        'operation':   { 'font-color': '#000', 'element-color': '#0d6efd', 'fill': '#e7f1ff' },
+        'subroutine':  { 'font-color': '#000', 'element-color': '#198754', 'fill': '#d1e7dd' },
+        'condition':   { 'font-color': '#000', 'element-color': '#fd7e14', 'fill': '#fff3cd' },
+        'inputoutput': { 'font-color': '#000', 'element-color': '#6f42c1', 'fill': '#e2d9f3' }
+    }
+};
+
+let currentChart = null;
+
+function renderChart(key) {
+    /* Update tab active state */
+    document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById('tab-' + key);
+    if (btn) btn.classList.add('active');
+
+    /* Set textarea value */
+    const cd = document.getElementById('code');
+    cd.value = CHARTS[key].trim();
+
+    /* Draw */
+    drawFromTextarea();
 }
 
-//needed because Firefox doesn't correctly handle SVG with size = 0, see https://bugzilla.mozilla.org/show_bug.cgi?id=700533
-function fixSvgDocumentFF(svgDocument) {
+function drawFromTextarea() {
+    const cd = document.getElementById('code');
+    const canvasDiv = document.getElementById('canvas');
+    if (currentChart) { currentChart.clean(); }
+    canvasDiv.innerHTML = '';
     try {
-        let widthInt = parseInt(svgDocument.documentElement.width.baseVal.value) || 500;
-        let heightInt = parseInt(svgDocument.documentElement.height.baseVal.value) || 500;
-        svgDocument.documentElement.width.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, widthInt);
-        svgDocument.documentElement.height.baseVal.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PX, heightInt);
-        return svgDocument;
+        currentChart = flowchart.parse(cd.value);
+        currentChart.drawSVG('canvas', DRAW_OPTIONS);
+        updateDownloadLinks();
     } catch (e) {
-        return svgDocument;
+        canvasDiv.innerHTML = '<p style="color:red;">Parse error: ' + e.message + '</p>';
     }
 }
 
-function svgDocumentToBase64(svgDocument) {
-    try {
-        let base64EncodedSVG = btoa(new XMLSerializer().serializeToString(svgDocument));
-        return 'data:image/svg+xml;base64,' + base64EncodedSVG;
-    } catch (e) {
-        return null;
-    }
+function updateDownloadLinks() {
+    const canvasDiv = document.getElementById('canvas');
+    const svg = canvasDiv.innerHTML.replaceAll('ë','e');
+    if (!svg) return;
+
+    const b64 = btoa(unescape(encodeURIComponent(svg)));
+    const title = 'TwoBotsChat_flowchart';
+
+    document.getElementById('svgbase64').innerHTML =
+        '<a href="data:image/svg+xml;base64,' + b64 + '" download="' + title + '.svg">Download SVG</a>';
+
+    /* PNG via canvas */
+    const svgSrc = 'data:image/svg+xml;base64,' + b64;
+    const svgXML = svg;
+    const wMatch = svgXML.match(/width="([^"]+)"/);
+    const hMatch = svgXML.match(/height="([^"]+)"/);
+    const w = wMatch ? Math.round(parseFloat(wMatch[1])) : 800;
+    const h = hMatch ? Math.round(parseFloat(hMatch[1])) : 600;
+
+    const img = new Image();
+    img.onload = function() {
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0,0,w,h);
+        ctx.drawImage(img, 0, 0, w, h);
+        try {
+            const png = c.toDataURL('image/png');
+            document.getElementById('pngbase64').innerHTML =
+                '<a href="' + png + '" download="' + title + '.png">Download PNG</a>';
+        } catch(e) {}
+    };
+    img.src = svgSrc;
 }
 
-function base64ToSvgDocument(base64) {
-    let svg = atob(base64.substring(base64.indexOf('base64,') + 7));
-    svg = svg.substring(svg.indexOf('<svg'));
-    let parser = new DOMParser();
-    return parser.parseFromString(svg, "image/svg+xml");
-} 
-        </script>
-
-        <script>
-            function HelpText() {
-              var x = document.getElementById("HelpTextBlock");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
+window.onload = function() {
+    renderChart('main');
+};
         </script>
     </head>
     <body>
-        <div><textarea id="code" style="width: 100%;" rows="11">op2=>operation: import argparse
-op4=>operation: from agents import build_agent_configs
-op6=>operation: from ollama_client import OllamaClient
-op8=>operation: from orchestrator import Orchestrator
-st11=>start: start parse_args
-io13=>inputoutput: input: 
-op16=>operation: parser = argparse.ArgumentParser(description='Local Ollama two-agent chat (zh-tw).')
-sub18=>subroutine: parser.add_argument('--model', default='qwen3:14b', help='Ollama model name.')
-sub20=>subroutine: parser.add_argument('--base-url', default='http://127.0.0.1:11434', help='Ollama base URL.')
-sub22=>subroutine: parser.add_argument('--agent-a-model', default=None, help='Override model for Agent A (defaults to --model).')
-sub24=>subroutine: parser.add_argument('--agent-b-model', default=None, help='Override model for Agent B (defaults to --model).')
-sub26=>subroutine: parser.add_argument('--agent-a-base-url', default=None, help='Override base URL for Agent A (defaults to --base-url).')
-sub28=>subroutine: parser.add_argument('--agent-b-base-url', default=None, help='Override base URL for Agent B (defaults to --base-url).')
-sub30=>subroutine: parser.add_argument('--topic', default=None, help='Initial discussion topic (if omitted, prompt on startup).')
-sub32=>subroutine: parser.add_argument('--agent-a-role', default=None, help='Role supplement for Agent A (if omitted, prompt on startup).')
-sub34=>subroutine: parser.add_argument('--agent-b-role', default=None, help='Role supplement for Agent B (if omitted, prompt on startup).')
-sub36=>subroutine: parser.add_argument('--max-turns', type=int, default=40, help='Max turns.')
-sub38=>subroutine: parser.add_argument('--min-sat', type=int, default=95, help='Min satisfaction.')
-sub40=>subroutine: parser.add_argument('--stable-rounds', type=int, default=2, help='Consecutive rounds required to stop.')
-sub42=>subroutine: parser.add_argument('--summary-keep-last', type=int, default=6, help='Keep the most recent N transcript entries; summarize the rest.')
-sub44=>subroutine: parser.add_argument('--summary-max-points', type=int, default=12, help='Max bullet points to keep in the summary.')
-sub46=>subroutine: parser.add_argument('--transcript-path', default=None, help='Optional transcript file path (JSONL).')
-sub48=>subroutine: parser.add_argument('--timeout-s', type=int, default=120, help='HTTP read timeout in seconds.')
-io53=>inputoutput: output:  parser.parse_args()
-e51=>end: end function return
+        <h1>TwoBotsChat — Project Flow Chart</h1>
+        <h2>Interactive diagram of the two-agent philosophical dialogue system</h2>
 
-op2->op4
-op4->op6
-op6->op8
-op8->st11
-st11->io13
-io13->op16
-op16->sub18
-sub18->sub20
-sub20->sub22
-sub22->sub24
-sub24->sub26
-sub26->sub28
-sub28->sub30
-sub30->sub32
-sub32->sub34
-sub34->sub36
-sub36->sub38
-sub38->sub40
-sub40->sub42
-sub42->sub44
-sub44->sub46
-sub46->sub48
-sub48->io53
-io53->e51
-</textarea></div>
-        <div><button id="run" type="button">Run</button> <button onclick="HelpText()">Format Help</button></div>
-        <div id="HelpTextBlock" style="display:none"><br/>Conditions can also be redirected like cond(yes, bottom) or cond(yes, right)
-... and the other symbols too... like sub1(right)<br/>
-You can also tweak the <b>diagram.drawSVG('diagram', {});</b> script in this file for more changes<br/>
-This is based on <a href="https://github.com/adrai/flowchart.js">flowchart.js on github</a> and <a href="http://flowchart.js.org">http://flowchart.js.org</a> more documentation can be found over there.
-</div><br/><div id="svgbase64"></div>
-        <div id="pngbase64"></div>
+        <div class="tab-bar">
+            <button id="tab-main" onclick="renderChart('main')">Main Entry</button>
+            <button id="tab-orchestrator" onclick="renderChart('orchestrator')">Orchestrator Loop</button>
+            <button id="tab-agent_turn" onclick="renderChart('agent_turn')">Agent Turn</button>
+            <button id="tab-build_messages" onclick="renderChart('build_messages')">Build Messages</button>
+            <button id="tab-context_mgmt" onclick="renderChart('context_mgmt')">Context Management</button>
+            <button id="tab-ollama_client" onclick="renderChart('ollama_client')">OllamaClient</button>
+            <button id="tab-report" onclick="renderChart('report')">Final Report</button>
+        </div>
+
+        <div><textarea id="code" rows="14"></textarea></div>
+
+        <div class="controls">
+            <button id="run" type="button" onclick="drawFromTextarea()">Redraw</button>
+        </div>
+
+        <div class="download-links">
+            <span id="svgbase64"></span>
+            <span id="pngbase64"></span>
+        </div>
 
         <div id="canvas"></div>
     </body>
